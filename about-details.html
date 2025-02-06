@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Maajid</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f0e0e;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            background-color: #111;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./assets/profile-pic-about.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            filter: grayscale(100%) contrast(120%);
+        }
+
+        .hero-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            min-height: calc(100vh - 4rem);
+            z-index: 2;
+        }
+
+        .hero-text {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: left;
+            color: white;
+            max-width: 800px;
+            padding: 10rem;
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 3rem;
+        
+            }
+
+            .hero-text p {
+                font-size: 1.0rem;
+            }
+        }
+        .detailed-about {
+            padding: 4rem 5rem;
+        }
+        .titleh3 {
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+}
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: rgb(0, 0, 0);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgb(163,163,163);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-section {
+            min-height: 100vh;
+            background-color: #0f0e0e;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .gallery-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .scattered-gallery {
+            position: relative;
+            height: 800px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+         
+        /* Mobile Navigation
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(17, 17, 17, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem;
+            }
+        } */
+
+        .about-nav {
+            padding-top: 2 rem;
+            height: 8vh;
+            justify-content: center;
+        }
+
+        .aclr {
+            color: #ccc;
+        }
+
+        /* Adjust hero section to account for fixed nav */
+        .hero-section {
+            padding-top: 0.1rem;
+        }
+
+        /* Positioned items */
+        .gallery-item:nth-child(1) { top: 10%; left: 10%; }
+        .gallery-item:nth-child(2) { top: 15%; right: 20%; }
+        .gallery-item:nth-child(3) { top: 40%; left: 25%; }
+        .gallery-item:nth-child(4) { top: 35%; right: 15%; }
+        .gallery-item:nth-child(5) { bottom: 20%; left: 20%; }
+        .gallery-item:nth-child(6) { bottom: 15%; right: 25%; }
+
+        /* Overlay effect on hover */
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(0, 0, 0, 0.2);
+        }
+/* 
+        @media (max-width: 768px) {
+            .scattered-gallery {
+                height: auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+
+            .gallery-item {
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: 100%;
+                height: 250px;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <nav class="about-nav">
+        <div class="logo"><a class="aclr" href="index.html">Maajid</a></div>
+        <div>
+        </nav>
+    <div class="hero-section">
+        <div class="hero-background">
+        <div class="hero-content">
+            
+        </div>
+    </div>
+    <div class="hero-text">
+        <h1>Hello</h1>
+        <p class="">I'm Maajid, have a  nice day</p>
+    </div>
+</div>
+    <div class="detailed-about">
+        <h2 class="titleh3">About Me</h2>
+        <div class="about-grid">
+            <div class="info-card">
+                <h3 >Background</h3>
+                <p>With over 2 years of experience in frontend development, I've developed a strong foundation in creating responsive and user-friendly websites. My journey in tech started during my BCA studies, where I discovered my passion for web development.</p>
+            </div>
+            <div class="info-card">
+                <h3>Skills & Expertise</h3>
+                <p>I specialize in HTML, CSS, JavaScript, and modern frameworks. My approach combines clean code with creative design to deliver exceptional user experiences. I'm constantly learning and adapting to new technologies.</p>
+            </div>
+            <div class="info-card">
+                <h3>Philosophy</h3>
+                <p>I believe in creating websites that not only look beautiful but also provide real value to users. My goal is to build digital experiences that are both functional and delightful to use.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-section">
+        <div class="gallery-header">
+            <h2>Photo Gallery</h2>
+        </div>
+        <div class="scattered-gallery">
+            <div class="gallery-item">
+                <img src="./assets/about-pic.png" alt="Gallery image 1">
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/about-pic.png" alt="Gallery image 2">
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/about-pic.png" alt="Gallery image 3">
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/about-pic.png" alt="Gallery image 4">
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/about-pic.png" alt="Gallery image 5">
+            </div>
+            <div class="gallery-item">
+                <img src="./assets/about-pic.png" alt="Gallery image 6">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Back To Home</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2025 Maajid.All Rights Reserved.</p>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
